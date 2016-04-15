@@ -6,11 +6,14 @@
             link:function (scope, elem, attrs) {
                 $window.addEventListener('keydown', function (event) {
                     if(event.ctrlKey && keyCodes[event.keyCode] == attrs.ngShortcutKeys){
-                        if(attrs.skPreventDefault)
-                            event.preventDefault();
+                        preventDefault();
                         elem.triggerHandler('click');
                     }
                 });
+                function preventDefault(){
+                    if(!!attrs.skPreventDefault)
+                        event.preventDefault();
+                }
                 var keyCodes = {
                     3 : "break",
                     8 : "backspace / delete",
