@@ -2,11 +2,11 @@
     function exampleController() {
         var vm = this;
         vm.sayHello = function () {
-            console.log("Hello There!!!");
+            vm.msg = "saying hello";
         }
 
         vm.sayWho = function () {
-            alert("Doctor who say who");
+            vm.msg = "The doctor prints bad wolf!!";
         }
     }
     angular.module('ngShortcutKey.examples', ['ngShortcutKey.directive']);
