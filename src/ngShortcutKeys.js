@@ -6,8 +6,7 @@
             link:function (scope, elem, attrs) {
                 $window.addEventListener('keydown', function (event) {
                     if(event.ctrlKey && event.shiftKey && keyCodes[event.keyCode] == attrs.ngShortcutKeys){
-                        scope.$eval(attrs.ngClick);
-                        console.log(attrs.ngShortcutKeys+" pressed");
+                        elem.triggerHandler('click');
                     }
                 });
                 var keyCodes = {
