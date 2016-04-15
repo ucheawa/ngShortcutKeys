@@ -5,7 +5,9 @@
             // require:'ng-click',
             link:function (scope, elem, attrs) {
                 $window.addEventListener('keydown', function (event) {
-                    if(event.ctrlKey && event.shiftKey && keyCodes[event.keyCode] == attrs.ngShortcutKeys){
+                    if(event.ctrlKey && keyCodes[event.keyCode] == attrs.ngShortcutKeys){
+                        if(attrs.skPreventDefault)
+                            event.preventDefault();
                         elem.triggerHandler('click');
                     }
                 });

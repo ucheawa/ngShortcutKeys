@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../src/ngShortcutKeys.js" ></script>
+    <script src="examples.js"></script>
+</head>
+<body ng-app="ngShortcutKey.examples" ng-controller="exampleController as ec">
+    <h1>ngShortcutKeys</h1>
+    <button ng-click="ec.sayHello()" ng-shortcut-keys="p" sk-prevent-default>Say Hello</button>
+    <button ng-click="ec.sayWho()" ng-shortcut-keys="b">Say Who</button>
+</body>
+</html>
