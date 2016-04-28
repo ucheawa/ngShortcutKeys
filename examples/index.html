@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <title>Test</title>
     <script src="../lib/angular.min.js"></script>
+    <script src="../src/app.js"></script>
+    <script src="../src/values.js"></script>
     <script src="../src/ngShortcutKeys.js" ></script>
     <script src="examples.js"></script>
 </head>
 <body ng-app="ngShortcutKey.examples" ng-controller="exampleController as ec">
     <h1>ngShortcutKeys</h1>
-    <button ng-click="ec.sayHello()" ng-shortcut-keys="p" sk-prevent-default="false">Say Hello</button>
-    <button ng-click="ec.sayWho()" ng-shortcut-keys="b">The Doctor Says</button>
+    <button ng-click="ec.sayHello()" ng-shortcut-keys="p" sk-prevent-default="true" sk-modifiers="ctrl">Say Hello</button>
+    <button ng-click="ec.sayWho()" ng-shortcut-keys="b" sk-modifiers="ctrl+shift">The Doctor Says</button>
     <div>{{ec.msg}}</div>
 </body>
 </html>

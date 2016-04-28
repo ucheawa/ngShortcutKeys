@@ -9,6 +9,6 @@
             vm.msg = "The doctor prints bad wolf!!";
         }
     }
-    angular.module('ngShortcutKey.examples', ['ngShortcutKey.directive']);
+    angular.module('ngShortcutKey.examples', ['ngShortcutKey']);
     angular.module('ngShortcutKey.examples').controller('exampleController',exampleController);
 })();
