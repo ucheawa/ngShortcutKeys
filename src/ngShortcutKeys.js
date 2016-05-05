@@ -7,7 +7,7 @@
                 var modifierKeys = parseModifiers(attrs.skModifiers);
 
                 $window.addEventListener('keydown', function (event) {
-                    if (modifierKeysActive(event) && shortcutKeyPressed(event.keyCode)) {
+                    if (modifierKeysActive(event) && shortcutKeyPressed(event.keyCode) && !isDeactivated()) {
                         preventDefault(event);
                         elem.triggerHandler('click');
                     }
@@ -30,7 +30,17 @@
                 }
 
                 function isDisabled() {
-                    return false;//TODO always return false for now
+                    return !!attrs.ngDisabled && scope.$eval(attrs.ngDisabled);
+                }
+
+                function isHidden() {
+                    return (!!attrs.ngHide && scope.$eval(attrs.ngHide))
+                        || (!!attrs.ngShow && !scope.$eval(attrs.ngShow));
+                }
+
+                function isDeactivated() {
+                    var deactivate = !!attrs.deactivateOn && scope.$eval(attrs.deactivateOn);
+                    return deactivate || isDisabled() || isHidden();
                 }
 
                 function preventDefault(event) {
